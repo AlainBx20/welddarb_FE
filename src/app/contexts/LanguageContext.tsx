@@ -50,6 +50,18 @@ interface Translations {
     join: string;
     rights: string;
   };
+  about: {
+    sectionLabel: string;
+    title: string;
+    sub: string;
+    quote1: string;
+    quote2: string;
+    p1: string;
+    p2: string;
+    values: string[];
+    worldwide: string;
+    followUs: string;
+  };
 }
 
 const translations: Record<Language, Translations> = {
@@ -106,6 +118,18 @@ const translations: Record<Language, Translations> = {
       join: 'Rejoindre',
       rights: '© 2026 ولاد درب. Tous droits réservés.',
     },
+    about: {
+      sectionLabel: 'Notre Histoire',
+      title: 'À Propos',
+      sub: 'OULED DARB — TUNISIE',
+      quote1: '" Pas juste des vêtements.',
+      quote2: 'Des histoires de la rue. "',
+      p1: 'Une marque née dans les ruelles — qui donne des finitions réelles et transforme la mémoire en vêtements. Chaque couture est une signature, chaque pièce une page.',
+      p2: 'صداقة / تضامن / عفوية — Amitié, Solidarité, Spontanéité.',
+      values: ['Street Culture', 'Justice', 'Memory', 'Peace (سلام)'],
+      worldwide: 'Worldwide',
+      followUs: 'Suivez-nous sur Instagram',
+    },
   },
   en: {
     nav: {
@@ -159,6 +183,18 @@ const translations: Record<Language, Translations> = {
       emailPlaceholder: 'Email',
       join: 'Join',
       rights: '© 2026 ولاد درب. All rights reserved.',
+    },
+    about: {
+      sectionLabel: 'Our Story',
+      title: 'About Us',
+      sub: 'OULED DARB — TUNISIA',
+      quote1: '" Not Just Clothes.',
+      quote2: 'Stories From The Street. "',
+      p1: 'A brand born in the streets — giving real finishes and turning memory into clothing. Every stitch is a signature, every piece a page.',
+      p2: 'صداقة / تضامن / عفوية — Friendship, Solidarity, Spontaneity.',
+      values: ['Street Culture', 'Justice', 'Memory', 'Peace (سلام)'],
+      worldwide: 'Worldwide',
+      followUs: 'Follow us on Instagram',
     },
   },
 };

@@ -6,6 +6,7 @@ import { Footer } from './components/Footer';
 import { CartPanel } from './components/CartPanel';
 import { TrackOrderModal } from './components/TrackOrderModal';
 import { AdminPanel } from './components/AdminPanel';
+import { AboutSection } from './components/AboutSection';
 import { LanguageProvider } from './contexts/LanguageContext';
 
 interface CartItem {
@@ -86,6 +87,7 @@ export default function App() {
         />
         <ScrollVideoSection onTrackClick={() => setIsTrackModalOpen(true)} />
         <FeaturedProduct onAddToCart={handleAddToCart} />
+        <AboutSection />
         <Footer />
         <CartPanel
           isOpen={isCartOpen}

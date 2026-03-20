@@ -24,10 +24,8 @@ export function Navbar({ onCartClick, onTrackClick, cartItemCount }: NavbarProps
   }, []);
 
   const menuItems = [
-    { label: t.nav.newArrivals, href: '#newarrivals' },
     { label: t.nav.collection, href: '#collection' },
     { label: t.nav.about, href: '#about' },
-    { label: t.nav.contact, href: '#contact' },
   ];
 
   return (
@@ -41,11 +39,13 @@ export function Navbar({ onCartClick, onTrackClick, cartItemCount }: NavbarProps
       }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
-      <div className="max-w-7xl mx-auto px-8 py-6">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <motion.div 
-            className="flex items-center"
+      <div className="max-w-[1600px] mx-auto px-8 py-5">
+        {/* Use relative+absolute trick: logo left, icons right, nav absolutely centered */}
+        <div className="relative flex items-center justify-between">
+          
+          {/* LEFT — Logo (shrink-0 means it never compresses) */}
+          <motion.div
+            className="flex items-center shrink-0 z-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -53,27 +53,28 @@ export function Navbar({ onCartClick, onTrackClick, cartItemCount }: NavbarProps
             <img src={logoImage} alt="Marque" className="h-10 w-auto" />
           </motion.div>
 
-          {/* Desktop Navigation */}
-          <motion.div 
-            className="hidden md:flex items-center gap-10"
+          {/* CENTER — Nav links (absolutely centered in full width) */}
+          <motion.div
+            className="hidden md:flex items-center gap-12 absolute left-1/2 -translate-x-1/2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            {menuItems.map((item, index) => (
+            {menuItems.map((item) => (
               <motion.a
                 key={item.href}
                 href={item.href}
-                className="text-white/70 hover:text-white transition-colors text-sm tracking-wider"
-                whileHover={{ y: -2 }}
+                className="relative text-white text-sm tracking-[0.3em] uppercase font-bold group"
+                whileHover={{ y: -1 }}
               >
                 {item.label}
+                <span className="absolute -bottom-1.5 left-0 w-0 h-[2px] bg-amber-100 group-hover:w-full transition-all duration-300" />
               </motion.a>
             ))}
           </motion.div>
 
-          {/* Right Icons */}
-          <div className="flex items-center gap-4">
+          {/* RIGHT — Icons (shrink-0) */}
+          <div className="flex items-center shrink-0 gap-5 z-10">
             
             {/* Track Order Icon */}
             <motion.button 
