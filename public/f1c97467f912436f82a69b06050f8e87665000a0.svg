@@ -1,0 +1,21 @@
+<svg width="400" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="200" fill="transparent"/>
+  
+  <!-- Arabic Text "ولاد عرب" styled like a luxury brand -->
+  <text 
+    x="200" 
+    y="120" 
+    font-family="Arial, sans-serif" 
+    font-size="48" 
+    font-weight="700" 
+    fill="#DC2626" 
+    text-anchor="middle"
+    style="letter-spacing: 2px;"
+  >
+    ولاد عرب
+  </text>
+  
+  <!-- Underline accent -->
+  <line x1="100" y1="140" x2="300" y2="140" stroke="#DC2626" stroke-width="2"/>
+</svg>

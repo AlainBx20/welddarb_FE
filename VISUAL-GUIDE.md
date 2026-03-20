@@ -1,0 +1,488 @@
+# 🎬 Getting Started Visual Guide
+
+> A visual, step-by-step guide to get your website running
+
+---
+
+## 📋 Prerequisites Check
+
+```
+┌─────────────────────────────────┐
+│  Do you have Node.js installed? │
+│                                 │
+│  Check: node --version          │
+│  Need: v18.0.0 or higher        │
+└─────────────────────────────────┘
+         │
+         ├──> ✅ YES → Continue below
+         │
+         └──> ❌ NO → Install from nodejs.org
+```
+
+---
+
+## 🚀 Setup Flow
+
+```
+┌──────────────────────┐
+│  1. EXTRACT PROJECT  │
+│                      │
+│  Extract ZIP file    │
+│  Open in terminal    │
+└──────────────────────┘
+          │
+          ▼
+┌──────────────────────┐
+│  2. INSTALL DEPS     │
+│                      │
+│  $ npm install       │
+│                      │
+│  ⏱️ Takes 2-3 mins    │
+└──────────────────────┘
+          │
+          ▼
+┌──────────────────────┐
+│  3. ADD LOGO         │
+│                      │
+│  Add PNG to /public  │
+│  (optional)          │
+└──────────────────────┘
+          │
+          ▼
+┌──────────────────────┐
+│  4. START DEV        │
+│                      │
+│  $ npm run dev       │
+│                      │
+│  🌐 Opens browser     │
+└──────────────────────┘
+          │
+          ▼
+┌──────────────────────┐
+│  ✅ WEBSITE RUNNING!  │
+│                      │
+│  localhost:5173      │
+└──────────────────────┘
+```
+
+---
+
+## 📁 Project Structure Visual
+
+```
+welad-arab-luxury-streetwear/
+│
+├── 📄 package.json          ← Dependencies list
+├── 📄 vite.config.ts        ← Build configuration
+├── 📄 index.html            ← Entry HTML file
+│
+├── 📂 public/               ← Static files
+│   └── 🖼️ logo.png          ← ADD YOUR LOGO HERE
+│
+├── 📂 src/                  ← Source code
+│   ├── 📄 main.tsx          ← React entry point
+│   │
+│   ├── 📂 app/
+│   │   ├── 📄 App.tsx       ← Main app component
+│   │   │
+│   │   ├── 📂 components/   ← UI components
+│   │   │   ├── Navbar.tsx
+│   │   │   ├── CartPanel.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   └── ...
+│   │   │
+│   │   └── 📂 contexts/     ← State management
+│   │       └── LanguageContext.tsx
+│   │
+│   └── 📂 styles/           ← CSS files
+│       ├── index.css
+│       ├── theme.css
+│       └── fonts.css
+│
+└── 📂 node_modules/         ← Installed packages
+    └── (created after npm install)
+```
+
+---
+
+## 🎨 Component Hierarchy
+
+```
+                    App.tsx
+                       │
+    ┌──────────────────┼──────────────────┐
+    │                  │                  │
+    ▼                  ▼                  ▼
+ Navbar      ScrollVideoSection     FeaturedProduct
+    │                  │                  │
+    ├─ Logo            ├─ Images          ├─ Product Info
+    ├─ Menu            ├─ Text            ├─ Size Selector
+    ├─ Lang Switch     └─ Animations      └─ Add to Cart
+    └─ Cart Icon                               │
+                                              │
+    ┌─────────────────────────────────────────┘
+    │
+    ▼
+ CartPanel ←──────────────────┐
+    │                         │
+    ├─ Cart Items             │
+    ├─ Quantities         Cart State
+    ├─ Total              (in App.tsx)
+    └─ Checkout               │
+                             │
+    ┌─────────────────────────┘
+    │
+    ▼
+  Footer
+    │
+    ├─ Brand Info
+    ├─ Links
+    ├─ Newsletter
+    └─ Social
+```
+
+---
+
+## 🔄 Development Workflow
+
+```
+        START HERE
+            │
+            ▼
+    ┌──────────────┐
+    │  npm run dev │
+    └──────────────┘
+            │
+            ▼
+    ┌─────────────────┐
+    │  Browser Opens  │
+    │  localhost:5173 │
+    └─────────────────┘
+            │
+            ▼
+    ┌──────────────────┐
+    │  Make Changes    │◄────────┐
+    │  in /src         │         │
+    └──────────────────┘         │
+            │                    │
+            ▼                    │
+    ┌──────────────────┐         │
+    │  Auto Refresh    │         │
+    │  See Changes     │         │
+    └──────────────────┘         │
+            │                    │
+            ├─ Happy? ──────────┘
+            │
+            ▼
+    ┌──────────────────┐
+    │  npm run build   │
+    └──────────────────┘
+            │
+            ▼
+    ┌──────────────────┐
+    │  Deploy to Web   │
+    └──────────────────┘
+```
+
+---
+
+## 🛒 Shopping Cart Flow
+
+```
+User clicks size
+      │
+      ▼
+Click "Add to Cart"
+      │
+      ▼
+handleAddToCart()
+      │
+      ├──> Check if item exists
+      │    │
+      │    ├─ YES → Increase quantity
+      │    └─ NO  → Add new item
+      │
+      ▼
+Update cartItems state
+      │
+      ▼
+Cart panel slides open
+      │
+      ▼
+Show cart items
+      │
+      ▼
+User can:
+  ├─ Change quantity
+  ├─ Remove item
+  └─ Checkout
+```
+
+---
+
+## 🌍 Language Switching Flow
+
+```
+User clicks Globe icon 🌐
+      │
+      ▼
+Dropdown opens
+      │
+      ├─ Français 🇫🇷
+      └─ English 🇬🇧
+      │
+      ▼
+User selects language
+      │
+      ▼
+setLanguage() called
+      │
+      ▼
+Context updates
+      │
+      ▼
+All components re-render
+      │
+      ▼
+Text changes instantly
+```
+
+---
+
+## 🎬 Scroll Animation Flow
+
+```
+User scrolls page
+      │
+      ▼
+useScroll() tracks progress
+      │
+      ▼
+Calculate frame index
+      │
+      ▼
+Blend between images
+      │
+      ▼
+Apply transformations
+  ├─ Scale
+  ├─ Opacity
+  └─ Y position
+      │
+      ▼
+Smooth visual effect
+```
+
+---
+
+## 🔧 Build Process
+
+```
+┌──────────────────┐
+│  npm run build   │
+└──────────────────┘
+         │
+         ▼
+┌──────────────────┐
+│  TypeScript      │
+│  Compilation     │
+└──────────────────┘
+         │
+         ▼
+┌──────────────────┐
+│  Bundle JS       │
+│  with Vite       │
+└──────────────────┘
+         │
+         ▼
+┌──────────────────┐
+│  Process CSS     │
+│  with Tailwind   │
+└──────────────────┘
+         │
+         ▼
+┌──────────────────┐
+│  Optimize Assets │
+│  Minify Code     │
+└──────────────────┘
+         │
+         ▼
+┌──────────────────┐
+│  Output to dist/ │
+└──────────────────┘
+         │
+         ▼
+┌──────────────────┐
+│  Ready to Deploy │
+└──────────────────┘
+```
+
+---
+
+## 📦 Deployment Flow
+
+```
+┌──────────────────┐
+│  npm run build   │
+└──────────────────┘
+         │
+         ▼
+┌──────────────────────┐
+│  Choose Platform:    │
+│                      │
+│  ├─ Vercel (easy)    │
+│  ├─ Netlify (easy)   │
+│  ├─ GitHub Pages     │
+│  └─ Custom hosting   │
+└──────────────────────┘
+         │
+         ▼
+┌──────────────────┐
+│  Upload dist/    │
+│  folder          │
+└──────────────────┘
+         │
+         ▼
+┌──────────────────┐
+│  Configure DNS   │
+│  (if custom)     │
+└──────────────────┘
+         │
+         ▼
+┌──────────────────┐
+│  ✅ LIVE! 🎉      │
+└──────────────────┘
+```
+
+---
+
+## 🎯 Quick Commands Visual
+
+```
+┌─────────────────────────────────────┐
+│  COMMAND           WHAT IT DOES     │
+├─────────────────────────────────────┤
+│  npm install       Install packages │
+│                                     │
+│  npm run dev       Start dev server │
+│                                     │
+│  npm run build     Build for prod   │
+│                                     │
+│  npm run preview   Test prod build  │
+└─────────────────────────────────────┘
+```
+
+---
+
+## 🆘 Troubleshooting Decision Tree
+
+```
+                Problem?
+                    │
+        ┌───────────┼───────────┐
+        │           │           │
+        ▼           ▼           ▼
+   Install?     Logo?      Other?
+        │           │           │
+        ▼           ▼           ▼
+   Clear cache  Check path  Read docs
+        │           │           │
+        ▼           ▼           ▼
+   npm clean   Restart dev Check errors
+        │           │           │
+        ▼           ▼           ▼
+   Reinstall   Try SVG     Google error
+        │           │           │
+        └───────────┴───────────┘
+                    │
+                    ▼
+                 Fixed? ✅
+```
+
+---
+
+## 📊 File Size Overview
+
+```
+Project Size After Install:
+
+node_modules/     ~500 MB  (dependencies)
+src/              ~100 KB  (your code)
+public/           ~50 KB   (static files)
+dist/ (built)     ~300 KB  (production)
+
+Total: ~500 MB dev, ~300 KB prod
+```
+
+---
+
+## 🎓 Learning Path Visual
+
+```
+┌─────────────────────────────────────┐
+│         START: New Developer         │
+└─────────────────────────────────────┘
+                  │
+                  ▼
+        ┌──────────────────┐
+        │  Read PROJECT.md │
+        └──────────────────┘
+                  │
+                  ▼
+        ┌──────────────────┐
+        │  Run setup       │
+        │  Get it working  │
+        └──────────────────┘
+                  │
+                  ▼
+        ┌──────────────────┐
+        │  Explore UI      │
+        │  Test features   │
+        └──────────────────┘
+                  │
+                  ▼
+        ┌──────────────────┐
+        │  Read code       │
+        │  Understand flow │
+        └──────────────────┘
+                  │
+                  ▼
+        ┌──────────────────┐
+        │  Make changes    │
+        │  Experiment      │
+        └──────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────┐
+│      GOAL: Confident Developer       │
+└─────────────────────────────────────┘
+```
+
+---
+
+## ✅ Success Checklist
+
+```
+Before saying "I'm done":
+
+□ Project extracts and opens ✓
+□ npm install completes ✓
+□ No error messages ✓
+□ npm run dev starts ✓
+□ Browser opens automatically ✓
+□ Website loads correctly ✓
+□ Logo appears (or placeholder) ✓
+□ Can switch languages ✓
+□ Can add items to cart ✓
+□ Cart panel opens/closes ✓
+□ All animations work ✓
+□ Mobile responsive ✓
+
+If all checked → You're ready! 🎉
+```
+
+---
+
+**You got this! 💪**
+
+*Need more help? Check [INDEX.md](INDEX.md) for all documentation.*
