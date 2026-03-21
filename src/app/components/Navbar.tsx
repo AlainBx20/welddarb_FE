@@ -50,7 +50,7 @@ export function Navbar({ onCartClick, onTrackClick, cartItemCount }: NavbarProps
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <img src={logoImage} alt="Marque" className="h-10 w-auto" />
+            <img src={logoImage} alt="Marque" className="h-16 w-auto" />
           </motion.div>
 
           {/* CENTER — Nav links (absolutely centered in full width) */}

@@ -63,7 +63,7 @@ export function ScrollVideoSection({ onTrackClick }: ScrollVideoSectionProps) {
         {/* Frame images */}
         {frames.map((frame, index) => {
           let frameOpacity = 0;
-          
+
           if (index === currentFrameIndex) {
             frameOpacity = 1 - blendFactor;
           } else if (index === nextFrameIndex) {
@@ -95,22 +95,22 @@ export function ScrollVideoSection({ onTrackClick }: ScrollVideoSectionProps) {
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70 pointer-events-none" />
 
         {/* Content */}
-        <motion.div 
+        <motion.div
           className="relative z-10 text-center px-6 flex flex-col items-center max-w-4xl"
-          style={{ 
+          style={{
             y: textY,
-            opacity: textOpacity 
+            opacity: textOpacity
           }}
         >
           <motion.img
             src={logoImage}
             alt="Marque"
-            className="w-24 md:w-40 mb-12"
+            className="w-100 md:w-200 mb-12"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           />
-          <motion.h1 
+          <motion.h1
             className="text-4xl md:text-7xl text-amber-100 tracking-[0.2em] mb-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -120,7 +120,7 @@ export function ScrollVideoSection({ onTrackClick }: ScrollVideoSectionProps) {
             {t.hero.title}
           </motion.h1>
           {!imagesLoaded && (
-            <motion.p 
+            <motion.p
               className="text-sm text-white/40 mt-6"
               animate={{ opacity: [0.3, 0.6, 0.3] }}
               transition={{ duration: 2, repeat: Infinity }}
@@ -136,7 +136,7 @@ export function ScrollVideoSection({ onTrackClick }: ScrollVideoSectionProps) {
           >
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              <a 
+              <a
                 href="#collection"
                 onClick={(e) => {
                   e.preventDefault();
@@ -146,7 +146,7 @@ export function ScrollVideoSection({ onTrackClick }: ScrollVideoSectionProps) {
               >
                 {t.hero.viewCollection}
               </a>
-              <button 
+              <button
                 onClick={onTrackClick}
                 className="border border-amber-100/40 text-amber-100/90 px-8 py-5 rounded-full text-[11px] font-bold tracking-[0.25em] uppercase transition-all duration-500 hover:bg-amber-100 hover:text-black hover:border-amber-100 hover:shadow-[0_0_20px_rgba(254,243,199,0.3)] cursor-pointer"
               >
@@ -162,7 +162,7 @@ export function ScrollVideoSection({ onTrackClick }: ScrollVideoSectionProps) {
               >
                 {t.hero.scroll}
               </motion.p>
-              <motion.div 
+              <motion.div
                 className="w-px h-16 bg-gradient-to-b from-amber-100/40 to-transparent mx-auto mt-4"
                 animate={{ opacity: [0.3, 0.7, 0.3] }}
                 transition={{ duration: 2, repeat: Infinity }}

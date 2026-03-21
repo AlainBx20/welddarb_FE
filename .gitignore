@@ -4,3 +4,6 @@ dist
 *.log
 *.rar
 *.zip
+*.exe
+public/old.png
+téléchargement.png
