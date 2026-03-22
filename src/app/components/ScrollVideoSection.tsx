@@ -28,9 +28,9 @@ export function ScrollVideoSection({ onTrackClick }: ScrollVideoSectionProps) {
     offset: ["start start", "end end"]
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 1]);
-  const textY = useTransform(scrollYProgress, [0, 0.5, 1], [0, -150, -300]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.3, 0.6], [1, 0.7, 0]);
+  const textY = useTransform(scrollYProgress, [0, 0.4, 0.8], [0, -80, -200]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.25, 0.5], [1, 0.6, 0]);
+
 
   useEffect(() => {
     const imagePromises = frames.map((src) => {
@@ -60,8 +60,9 @@ export function ScrollVideoSection({ onTrackClick }: ScrollVideoSectionProps) {
 
   return (
     <div ref={containerRef} className="relative h-[400vh]">
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden bg-neutral-900">
-        {/* Frame images */}
+      <div className="sticky top-0 h-screen overflow-hidden bg-black">
+
+        {/* Full-screen image layers */}
         {frames.map((frame, index) => {
           let frameOpacity = 0;
 
@@ -75,65 +76,65 @@ export function ScrollVideoSection({ onTrackClick }: ScrollVideoSectionProps) {
             <motion.div
               key={index}
               className="absolute inset-0"
-              style={{
-                opacity: frameOpacity,
-                scale,
-              }}
+              style={{ opacity: frameOpacity }}
             >
-              <div
-                className="w-full h-full"
-                style={{
-                  backgroundImage: `url(${frame})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'top center',
-                }}
+              {/* The image fills the entire screen. 
+                  object-cover crops it to fill; object-top keeps faces visible.
+                  The motion style pans it down slowly as user scrolls for cinematic effect. */}
+              <img
+                src={frame}
+                alt={`Shooting ${index + 1}`}
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ objectPosition: 'center 25%' }}
               />
             </motion.div>
           );
         })}
 
-        {/* Overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70 pointer-events-none" />
+        {/* Dark gradient overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70 pointer-events-none" />
 
-        {/* Content */}
+        {/* Hero Content — centered */}
         <motion.div
-          className="relative z-10 text-center px-6 flex flex-col items-center max-w-4xl"
+          className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6"
           style={{
             y: textY,
-            opacity: textOpacity
+            opacity: textOpacity,
           }}
         >
           <motion.img
             src={logoImage}
-            alt="Marque"
-            className="w-100 md:w-200 mb-12"
+            alt="Wled Darb"
+            className="w-40 md:w-72 mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           />
           <motion.h1
-            className="text-4xl md:text-7xl text-amber-100 tracking-[0.2em] mb-4"
+            className="text-4xl md:text-7xl text-amber-100 tracking-[0.15em] mb-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontWeight: 300, letterSpacing: '0.15em' }}
+            style={{ fontWeight: 300 }}
           >
             {t.hero.title}
           </motion.h1>
+
           {!imagesLoaded && (
             <motion.p
-              className="text-sm text-white/40 mt-6"
+              className="text-sm text-white/40 mt-4"
               animate={{ opacity: [0.3, 0.6, 0.3] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
               {t.hero.loading}
             </motion.p>
           )}
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.2, delay: 1.2 }}
-            className="mt-12 flex flex-col items-center gap-10"
+            className="mt-10 flex flex-col items-center gap-8"
           >
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center gap-4">
