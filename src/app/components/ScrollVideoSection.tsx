@@ -85,7 +85,7 @@ export function ScrollVideoSection({ onTrackClick }: ScrollVideoSectionProps) {
                 src={frame}
                 alt={`Shooting ${index + 1}`}
                 className="absolute inset-0 w-full h-full object-cover"
-                style={{ objectPosition: 'center 25%' }}
+                style={{ objectPosition: 'center 2%' }}
               />
             </motion.div>
           );
@@ -105,7 +105,7 @@ export function ScrollVideoSection({ onTrackClick }: ScrollVideoSectionProps) {
           <motion.img
             src={logoImage}
             alt="Wled Darb"
-            className="w-40 md:w-72 mb-8"
+            className="w-72 md:w-[700px] mb-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
