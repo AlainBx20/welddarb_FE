@@ -4,12 +4,13 @@ import logoImage from 'figma:asset/f1c97467f912436f82a69b06050f8e87665000a0.png'
 import { useLanguage } from '../contexts/LanguageContext';
 
 const frames = [
-  "https://images.unsplash.com/photo-1771340183956-6f69d2d08f43?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYXNoaW9uJTIwbW9kZWxzJTIwc3RyZWV0d2VhciUyMG91dGRvb3IlMjB1cmJhbnxlbnwxfHx8fDE3NzIwNDIxMzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1654758790539-766103dd71d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBmYXNoaW9uJTIwamFja2V0JTIwZGV0YWlsJTIwY2xvc2V1cHxlbnwxfHx8fDE3NzIwNDIxMzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1758387813664-5cd1211304f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBmYXNoaW9uJTIwZWRpdG9yaWFsJTIwYmxhY2slMjBjbG90aGluZ3xlbnwxfHx8fDE3NzIwNDIzNjZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1513188447171-ecf00455f051?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYXNoaW9uJTIwbW9kZWwlMjBibGFjayUyMGNsb3RoaW5nJTIwbWluaW1hbHxlbnwxfHx8fDE3NzE5NTYzNjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1761522001173-407848107951?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoaWdoJTIwZmFzaGlvbiUyMG1vZGVsJTIwbWluaW1hbCUyMGRhcmt8ZW58MXx8fHwxNzcyMDQyMzY2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-  "https://images.unsplash.com/photo-1542327534-59a1fe8daf73?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHJlZXR3ZWFyJTIwYnJhbmQlMjB1cmJhbiUyMGZhc2hpb258ZW58MXx8fHwxNzcxOTU2MzczfDA&ixlib=rb-4.1.0&q=80&w=1080",
+  "/shooting/shooting_page-0001.jpg",
+  "/shooting/shooting_page-0002.jpg",
+  "/shooting/shooting_page-0003.jpg",
+  "/shooting/shooting_page-0004.jpg",
+  "/shooting/shooting_page-0005.jpg",
+  "/shooting/shooting_page-0006.jpg",
+  "/shooting/shooting_page-0007.jpg",
 ];
 
 interface ScrollVideoSectionProps {
@@ -27,7 +28,7 @@ export function ScrollVideoSection({ onTrackClick }: ScrollVideoSectionProps) {
     offset: ["start start", "end end"]
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.05, 1.15]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 1]);
   const textY = useTransform(scrollYProgress, [0, 0.5, 1], [0, -150, -300]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.3, 0.6], [1, 0.7, 0]);
 
@@ -84,7 +85,7 @@ export function ScrollVideoSection({ onTrackClick }: ScrollVideoSectionProps) {
                 style={{
                   backgroundImage: `url(${frame})`,
                   backgroundSize: 'cover',
-                  backgroundPosition: 'center',
+                  backgroundPosition: 'top center',
                 }}
               />
             </motion.div>
