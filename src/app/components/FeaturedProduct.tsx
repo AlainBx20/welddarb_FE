@@ -17,6 +17,7 @@ export const PRICES_CONFIG = {
 import p1_img1 from './ressources/Produit_1/DSC07232.JPG';
 import p1_img2 from './ressources/Produit_1/DSC07235.JPG';
 import p1_img3 from './ressources/Produit_1/DSC07236.JPG';
+import p1_img4 from './ressources/Produit_1/DSC07239.JPG';
 
 
 const sizes = ['S', 'M', 'L', 'XL'];
@@ -24,11 +25,11 @@ const sizes = ['S', 'M', 'L', 'XL'];
 const LOCAL_PRODUCTS = [
   {
     localId: 9991,
-    name: 'Veste Heritage Signature',
+    name: 'Drop Omar Labidi',
     price: PRICES_CONFIG.MASTER_PRODUCT,
     description: "L'apogée de notre collection. Une fusion parfaite entre la lignée Heritage et l'audace Signature. Confectionnée dans un tissu premium avec des détails de couture artisanale, cette pièce représente l'essence même de Weldarab.",
     category: "Collection Exclusive",
-    images: [p1_img1, p1_img2, p1_img3],
+    images: [p1_img4, p1_img1, p1_img2, p1_img3],
   }
 ];
 

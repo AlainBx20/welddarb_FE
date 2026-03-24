@@ -9,7 +9,6 @@ const frames = [
   "/shooting/shooting_page-0003.jpg",
   "/shooting/shooting_page-0004.jpg",
   "/shooting/shooting_page-0005.jpg",
-  "/shooting/shooting_page-0006.jpg",
   "/shooting/shooting_page-0007.jpg",
 ];
 
