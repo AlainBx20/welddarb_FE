@@ -74,7 +74,7 @@ const translations: Record<Language, Translations> = {
       trackOrder: 'Suivre ma commande',
     },
     hero: {
-      title: 'LUXE REDÉFINI',
+      title: '',
       scroll: 'DÉFILER POUR EXPLORER',
       loading: 'Chargement...',
       viewCollection: 'VOIR LA COLLECTION',
@@ -140,7 +140,7 @@ const translations: Record<Language, Translations> = {
       trackOrder: 'Track Order',
     },
     hero: {
-      title: 'LUXURY REDEFINED',
+      title: '',
       scroll: 'SCROLL TO EXPLORE',
       loading: 'Loading...',
       viewCollection: 'VIEW COLLECTION',

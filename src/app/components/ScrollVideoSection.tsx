@@ -27,7 +27,7 @@ export function ScrollVideoSection({ onTrackClick }: ScrollVideoSectionProps) {
     offset: ["start start", "end end"]
   });
 
-  const textY = useTransform(scrollYProgress, [0, 0.4, 0.8], [0, -80, -200]);
+
   const textOpacity = useTransform(scrollYProgress, [0, 0.25, 0.5], [1, 0.6, 0]);
 
 
@@ -97,20 +97,11 @@ export function ScrollVideoSection({ onTrackClick }: ScrollVideoSectionProps) {
         <motion.div
           className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-6"
           style={{
-            y: textY,
             opacity: textOpacity,
           }}
         >
 
-          <motion.h1
-            className="text-4xl md:text-7xl text-amber-100 tracking-[0.15em] mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontWeight: 300 }}
-          >
-            {t.hero.title}
-          </motion.h1>
+
 
           {!imagesLoaded && (
             <motion.p
