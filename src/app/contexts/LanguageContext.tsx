@@ -81,13 +81,13 @@ const translations: Record<Language, Translations> = {
     },
     product: {
       featured: 'En Vedette',
-      name: 'Veste Heritage',
-      description: 'Une pièce intemporelle méticuleusement confectionnée en laine italienne premium. Chaque couture raconte une histoire d\'artisanat traditionnel et d\'innovation moderne.',
+      name: 'Drop Omar Labidi',
+      description: "L'apogée de notre collection. Une fusion parfaite entre l'héritage de la rue et l'innovation contemporaine. Chaque couture raconte l'histoire de Wled Darb — une pièce qui transforme la mémoire en vêtement.",
       details: [
-        'Tissu en laine italienne',
-        'Détails cousus main',
-        'Quincaillerie d\'époque',
-        'Édition numérotée'
+        'Molleton 450 GSM (Heavyweight)',
+        'Sérigraphie Haute Densité',
+        'Coupe Oversized Premium',
+        'Edition Limitée "Omar Labidi"'
       ],
       selectSize: 'Sélectionner la Taille',
       addToCart: 'Ajouter au Panier',
@@ -147,13 +147,13 @@ const translations: Record<Language, Translations> = {
     },
     product: {
       featured: 'Featured',
-      name: 'Heritage Jacket',
-      description: 'A timeless piece meticulously crafted from premium Italian wool. Every stitch tells a story of heritage craftsmanship and modern innovation.',
+      name: 'Drop Omar Labidi',
+      description: "The peak of our collection. A perfect fusion between street heritage and contemporary innovation. Every stitch tells the story of Wled Darb — a piece that transforms memory into clothing.",
       details: [
-        'Italian wool fabric',
-        'Hand-stitched details',
-        'Heritage hardware',
-        'Numbered edition'
+        '450 GSM Heavyweight Fleece',
+        'High-Density Screen Printing',
+        'Premium Oversized Fit',
+        'Limited "Omar Labidi" Edition'
       ],
       selectSize: 'Select Size',
       addToCart: 'Add to Cart',

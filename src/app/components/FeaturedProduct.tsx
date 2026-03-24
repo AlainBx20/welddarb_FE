@@ -27,7 +27,7 @@ const LOCAL_PRODUCTS = [
     localId: 9991,
     name: 'Drop Omar Labidi',
     price: PRICES_CONFIG.MASTER_PRODUCT,
-    description: "L'apogée de notre collection. Une fusion parfaite entre la lignée Heritage et l'audace Signature. Confectionnée dans un tissu premium avec des détails de couture artisanale, cette pièce représente l'essence même de Weldarab.",
+    description: "L'apogée de notre collection. Une fusion parfaite entre l'héritage de la rue et l'innovation contemporaine. Chaque couture raconte l'histoire de Wled Darb — une pièce qui transforme la mémoire en vêtement.",
     category: "Collection Exclusive",
     images: [p1_img4, p1_img1, p1_img2, p1_img3],
   }
