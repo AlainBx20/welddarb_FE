@@ -17,12 +17,7 @@ export const PRICES_CONFIG = {
 import p1_img1 from './ressources/Produit_1/DSC07232.JPG';
 import p1_img2 from './ressources/Produit_1/DSC07235.JPG';
 import p1_img3 from './ressources/Produit_1/DSC07236.JPG';
-import p1_img4 from './ressources/Produit_1/DSC07237.JPG';
-import p1_img5 from './ressources/Produit_1/DSC07239.JPG';
 
-// Images Produit 2
-import p2_img1 from './ressources/Produit_2/DSC07233.JPG';
-import p2_img2 from './ressources/Produit_2/DSC07238.JPG';
 
 const sizes = ['S', 'M', 'L', 'XL'];
 
@@ -33,7 +28,7 @@ const LOCAL_PRODUCTS = [
     price: PRICES_CONFIG.MASTER_PRODUCT,
     description: "L'apogée de notre collection. Une fusion parfaite entre la lignée Heritage et l'audace Signature. Confectionnée dans un tissu premium avec des détails de couture artisanale, cette pièce représente l'essence même de Weldarab.",
     category: "Collection Exclusive",
-    images: [p1_img1, p2_img1, p1_img2, p2_img2, p1_img3, p1_img4, p1_img5],
+    images: [p1_img1, p1_img2, p1_img3],
   }
 ];
 
@@ -66,19 +61,19 @@ function ImageCarousel({ images, productName }: { images: string[], productName:
       </div>
       {images.length > 1 && (
         <>
-          <button 
+          <button
             className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/60 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 backdrop-blur-md hover:bg-black/80 shadow-lg"
             onClick={scrollPrev}
           >
             <ChevronLeft size={24} strokeWidth={1.5} />
           </button>
-          <button 
+          <button
             className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/60 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 hover:scale-110 backdrop-blur-md hover:bg-black/80 shadow-lg"
             onClick={scrollNext}
           >
             <ChevronRight size={24} strokeWidth={1.5} />
           </button>
-          
+
           {/* Indicateur de slider stylé */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
             {images.map((_, dotIdx) => (
@@ -92,18 +87,18 @@ function ImageCarousel({ images, productName }: { images: string[], productName:
 }
 
 // Composant d'affichage d'un seul produit avec flexibilité
-function SingleProductView({ 
-  productData, 
-  backendProduct, 
-  onAddToCart, 
-  t, 
+function SingleProductView({
+  productData,
+  backendProduct,
+  onAddToCart,
+  t,
   isInView,
-  index 
-}: { 
-  productData: typeof LOCAL_PRODUCTS[0], 
-  backendProduct: ProductDTO | undefined, 
-  onAddToCart: any, 
-  t: any, 
+  index
+}: {
+  productData: typeof LOCAL_PRODUCTS[0],
+  backendProduct: ProductDTO | undefined,
+  onAddToCart: any,
+  t: any,
   isInView: boolean,
   index: number
 }) {
@@ -195,11 +190,10 @@ function SingleProductView({
               <motion.button
                 key={size}
                 onClick={() => setSelectedSize(size)}
-                className={`w-14 h-14 rounded-full border text-sm font-medium transition-all duration-300 ${
-                  selectedSize === size
-                    ? 'border-transparent bg-amber-100 text-black shadow-[0_0_30px_rgba(254,243,199,0.3)]'
-                    : 'border-white/10 bg-white/5 text-white/60 hover:border-white/40 hover:bg-white/10'
-                }`}
+                className={`w-14 h-14 rounded-full border text-sm font-medium transition-all duration-300 ${selectedSize === size
+                  ? 'border-transparent bg-amber-100 text-black shadow-[0_0_30px_rgba(254,243,199,0.3)]'
+                  : 'border-white/10 bg-white/5 text-white/60 hover:border-white/40 hover:bg-white/10'
+                  }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -267,7 +261,7 @@ export function FeaturedProduct({ onAddToCart }: FeaturedProductProps) {
       <div className="absolute inset-0 opacity-[0.02] bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto relative z-10">
-        
+
         {/* En-tête de Section Centralisé */}
         <motion.div
           className="text-center mb-40 relative"
