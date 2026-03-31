@@ -9,7 +9,8 @@ import { ChevronRight, ChevronLeft } from 'lucide-react';
 // 💰 SECTION VISIBLE POUR DEVELOPPEURS: CHANGER LES PRIX ICI
 // =========================================================================
 export const PRICES_CONFIG = {
-  MASTER_PRODUCT: 180, // Prix unique après fusion
+  OLD_PRICE: 200,
+  CURRENT_PRICE: 160,
 };
 // =========================================================================
 
@@ -26,7 +27,7 @@ const LOCAL_PRODUCTS = [
   {
     localId: 9991,
     name: 'Drop Omar Labidi',
-    price: PRICES_CONFIG.MASTER_PRODUCT,
+    price: PRICES_CONFIG.CURRENT_PRICE,
     description: "L'apogée de notre collection. Une fusion parfaite entre l'héritage de la rue et l'innovation contemporaine. Chaque couture raconte l'histoire de Wled Darb — une pièce qui transforme la mémoire en vêtement.",
     category: "Collection Exclusive",
     images: [p1_img4, p1_img1, p1_img2, p1_img3],
@@ -155,11 +156,32 @@ function SingleProductView({
           {finalName}
         </h3>
 
-        {/* Prix */}
-        <div className="mb-10">
-          <p className="text-4xl text-amber-50 flex items-baseline gap-2 bg-white/5 inline-block px-6 py-4 rounded-xl border border-white/5 shadow-inner" style={{ fontWeight: 300 }}>
-            {finalPrice} <span className="text-2xl font-light text-amber-100/50">TND</span>
-          </p>
+        {/* Prix avec Remise - Version Compacte Urban Minimalist */}
+        <div className="mb-10 flex flex-col">
+          <div className="flex items-center gap-6">
+            <span className="text-5xl md:text-6xl font-light text-white tracking-tighter">
+              {finalPrice} <span className="text-xl text-white/30 ml-1">TND</span>
+            </span>
+
+            {/* Tag Remise Discret */}
+            <motion.div
+              animate={{ opacity: [0.7, 1, 0.7] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="bg-red-500 text-white text-[10px] px-3 py-1 rounded-sm font-bold tracking-[0.1em] uppercase shadow-[0_0_15px_rgba(239,68,68,0.2)]"
+            >
+              -{Math.round(((PRICES_CONFIG.OLD_PRICE - Number(finalPrice)) / PRICES_CONFIG.OLD_PRICE) * 100)}%
+            </motion.div>
+          </div>
+
+          <div className="flex items-center gap-4 mt-2">
+            <span className="text-lg line-through text-white/20 font-extralight tracking-widest">
+              {PRICES_CONFIG.OLD_PRICE} TND
+            </span>
+            <div className="h-[1px] w-4 bg-white/10" />
+            <span className="text-[10px] uppercase tracking-[0.2em] font-medium text-red-500/80">
+              ÉCONOMIE DE {PRICES_CONFIG.OLD_PRICE - Number(finalPrice)} TND
+            </span>
+          </div>
         </div>
 
         {/* Description */}

@@ -1,0 +1,218 @@
+{
+  "info": {
+    "_postman_id": "a06d8236-8c62-4079-9313-16b4d6c1bb78",
+    "name": "WIB-IBANSYS-T24",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "45240080",
+    "_collection_link": "https://go.postman.co/collection/45240080-a06d8236-8c62-4079-9313-16b4d6c1bb78?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Prélèvement et imputation commission de domiciliation",
+      "request": {
+        "auth": {
+          "type": "oauth2",
+          "oauth2": [
+            {
+              "key": "tokenType",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "key": "accessToken",
+              "value": "{{authToken}}",
+              "type": "string"
+            },
+            {
+              "key": "addTokenTo",
+              "value": "header",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"body\": {\r\n        \"debitAccount\": \"1000000007572\",\r\n        \"comCurrency\": \"TND\",\r\n        \"comDate\": \"20250304\",\r\n        \"comCode\": \"AVAREN\",\r\n        \"comAmnt\": \"100.000\",\r\n        \"extraDetails\": \"AV2506300107\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://gatesrv.wifakbank.com/devWibTransact/1.0/v1.0.0/party/IbansysApi/postCommission",
+          "protocol": "https",
+          "host": [
+            "gatesrv",
+            "wifakbank",
+            "com"
+          ],
+          "path": [
+            "devWibTransact",
+            "1.0",
+            "v1.0.0",
+            "party",
+            "IbansysApi",
+            "postCommission"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Récupération du détail de la fiche client",
+      "request": {
+        "auth": {
+          "type": "oauth2",
+          "oauth2": [
+            {
+              "key": "tokenType",
+              "value": "",
+              "type": "string"
+            },
+            {
+              "key": "accessToken",
+              "value": "{{authToken}}",
+              "type": "string"
+            },
+            {
+              "key": "addTokenTo",
+              "value": "header",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://gatesrv.wifakbank.com/devWibTransact/1.0/v1.0.0/party/IbansysApi/Customers?customerId=100013",
+          "protocol": "https",
+          "host": [
+            "gatesrv",
+            "wifakbank",
+            "com"
+          ],
+          "path": [
+            "devWibTransact",
+            "1.0",
+            "v1.0.0",
+            "party",
+            "IbansysApi",
+            "Customers"
+          ],
+          "query": [
+            {
+              "key": "customerId",
+              "value": "100013"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get token",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "console.log(pm.response.json());\r",
+              "let response = pm.response.json();\r",
+              "pm.collectionVariables.set(\"authToken\", response.access_token);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Cookie",
+            "value": "JSESSIONID=3CCEC63EE4BE315DFFDD3D513D7AECD7"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "type": "text",
+              "key": "grant_type",
+              "value": "client_credentials"
+            },
+            {
+              "type": "text",
+              "key": "client_id",
+              "value": "5R_BtXZf_BAgMiYBGUuMi9CQEhIa"
+            },
+            {
+              "type": "text",
+              "key": "client_secret",
+              "value": "R0LBJpwSQR2_1GpxCC5SQ4n5JAQa"
+            },
+            {
+              "type": "text",
+              "key": "scope",
+              "value": "production"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://gateSrv.wifakbank.com:9443/oauth2/token",
+          "protocol": "https",
+          "host": [
+            "gateSrv",
+            "wifakbank",
+            "com"
+          ],
+          "port": "9443",
+          "path": [
+            "oauth2",
+            "token"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "authToken",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
